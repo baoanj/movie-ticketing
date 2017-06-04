@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', type='text/css', href='/stylesheets/detail.css')
+  body
+  #main_content
+    h1 用户详情
+    #textContent
+      div
+        p 用户名 ：
+        p#username!= user.username
+      hr
+      div
+        p 邮箱 ：
+        p#email!= user.email
+    p#switch
+      a(href='/user/signout', title='退出登录') 退出登录

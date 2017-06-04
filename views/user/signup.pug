@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', type='text/css', href='/stylesheets/signup.css')
+  body
+  #main_content
+    h1 用户注册
+    form#register_form(action='/user/signup', method='post')
+      input#username(name='username', type='text', placeholder='用户名', maxlength='18', value=user.username)
+      p.tips 用户名为6~18位英文字母、数字或下划线，必须以英文字母开头
+      p#err_username.error!= error.username
+
+      input#email(name='email', type='email', placeholder='邮箱', value=user.email)
+      p.tips 请填写您常用的邮箱
+      p#err_email.error!= error.email
+
+      input#password(name='password', type='password', placeholder='密码', maxlength='12', value=user.password)
+      p.tips 密码为6~12位数字、大小写字母、中划线、下划线
+      p#err_password.error!= error.password
+
+      input#repeatpass(name='repeatpass', type='password', placeholder='重复密码', maxlength='12', value=user.repeatpass)
+      p.tips 请输入和前面相同的密码
+      p#err_repeatpass.error!= error.repeatpass
+      
+      button#reset(type='reset') 重置
+      button#register(type='submit') 注册
+    p#switch 已有账号？
+      a(href='/user/signin', title='登录') 登录
+  script(type='text/javascript', src='/javascripts/jquery.js')
+  script(type='text/javascript', src='/javascripts/signup.js')
+  script(type='text/javascript', src='/javascripts/validator.js')
