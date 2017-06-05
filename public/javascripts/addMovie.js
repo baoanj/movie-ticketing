@@ -41,4 +41,23 @@ $(function() {
       $('#movies').append(div1);
     }
   });
+
+  $.get('/getMovies', { type: '3' }, (data) => {
+    let boxOfficeName = data.boxOfficeName;
+    let boxOfficeRealtime = data.boxOfficeRealtime;
+    let boxOfficeCumulate = data.boxOfficeCumulate;
+    for (let i = 0; i < boxOfficeName.length; i++) {
+      let tr = $('<tr></tr>');
+      let td0 = $('<td></td>');
+      td0.text(i + 1);
+      let td1 = $('<td></td>');
+      td1.text(boxOfficeName[i]);
+      let td2 = $('<td></td>');
+      td2.text(boxOfficeRealtime[i]);
+      let td3 = $('<td></td>');
+      td3.text(boxOfficeCumulate[i]);
+      tr.append(td0, td1, td2, td3);
+      $('tbody').append(tr);
+    }
+  });
 });

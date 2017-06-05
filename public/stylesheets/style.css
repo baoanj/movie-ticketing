@@ -10,49 +10,59 @@
   padding: 0;
 }
 
-.col-md-4 {
+.movie-card {
   margin: 0;
   display: inline-block;
 }
 
 @media only screen and (max-width: 240px) {
-  .col-md-4 {
+  .movie-card {
     width: 100%;
+  }
+  .all-movie,
+  .col-md-8,
+  .col-md-4 {
+    padding: 0 !important;
   }
 }
 
 @media only screen and (min-width: 241px) and (max-width: 380px) {
-  .col-md-4 {
+  .movie-card {
     width: 100%;
+  }
+  .all-movie,
+  .col-md-8,
+  .col-md-4 {
+    padding: 0 !important;
   }
 }
 
 @media only screen and (min-width: 381px) and (max-width: 550px) {
-  .col-md-4 {
+  .movie-card {
     width: 50%;
   }
 }
 
 @media only screen and (min-width: 551px) and (max-width: 799px) {
-  .col-md-4 {
+  .movie-card {
     width: 33.33333333%;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 1199px) {
-  .col-md-4 {
+  .movie-card {
     width: 25%;
   }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .col-md-4 {
+  .movie-card {
     width: 25%;
   }
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 2048px) {
-  .col-md-4 {
+  .movie-card {
     width: 20%;
   }
 }
@@ -123,6 +133,13 @@ body {
   margin: 0;
   padding: 0;
   border: none;
+}
+
+span#cityChoice {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  line-height: 20px;
 }
 
 .input-radius {
@@ -205,6 +222,24 @@ div.carousel-inner div.item {
   font-size: 2em;
   color: #ef4238;
   padding: 0.5em;
+}
+
+tbody tr:nth-child(1) td:nth-child(1),
+tbody tr:nth-child(2) td:nth-child(1),
+tbody tr:nth-child(3) td:nth-child(1) {
+  font-weight: bold;
+  color: #ED0D75;
+}
+
+tbody tr:nth-child(4) td:nth-child(1),
+tbody tr:nth-child(5) td:nth-child(1),
+tbody tr:nth-child(6) td:nth-child(1),
+tbody tr:nth-child(7) td:nth-child(1),
+tbody tr:nth-child(8) td:nth-child(1),
+tbody tr:nth-child(9) td:nth-child(1),
+tbody tr:nth-child(10) td:nth-child(1) {
+  font-weight: bold;
+  color: #717171;
 }
 
 footer {

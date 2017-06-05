@@ -13,7 +13,6 @@ module.exports = function(db) {
     }
     let obj = {
       title: '12345电影',
-      city: '北京',
       username: username
     };
     res.render('index', obj);
@@ -24,6 +23,8 @@ module.exports = function(db) {
       getMovies.getCarouImgs(res);
     } else if (req.query.type === '2') {
       getMovies.getAllMovies(res);
+    } else if (req.query.type === '3') {
+      getMovies.getBoxOffice(res);
     } else {
       res.redirect('/');
     }

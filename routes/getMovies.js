@@ -35,8 +35,6 @@ function getAllMovies(res) {
 function getCarouImgs(res) {
   request('http://maoyan.com/', (error, response, body) => {
     if (!error && response.statusCode === 200) {
-    	var $ = cheerio.load(body);
-    	let movieCarous = $('div.banner a');
       try {
         var $ = cheerio.load(body);
         let movieCarous = $('div.banner a');
@@ -58,5 +56,43 @@ function getCarouImgs(res) {
   });
 };
 
+function getBoxOffice(res) {
+  request('http://www.cbooo.cn/', (error, response, body) => {
+    if (!error && response.statusCode === 200) {
+      try {
+        var $ = cheerio.load(body);
+        let boxOfficeName = $('tbody#topdatatr tr td:nth-child(2)');
+        let boxOfficeRealtime = $('tbody#topdatatr tr td:nth-child(3)');
+        let boxOfficeCumulate = $('tbody#topdatatr tr td:nth-child(5)');
+        
+        let boxOfficeNameArr = [];
+        let boxOfficeRealtimeArr = [];
+        let boxOfficeCumulateArr = [];
+        for (let i in boxOfficeName) {
+          if (boxOfficeName.hasOwnProperty(i) && !isNaN(parseInt(i))) {
+            boxOfficeNameArr.push(boxOfficeName[i]['children'][0]['data']);
+          }
+        }
+        for (let i in boxOfficeRealtime) {
+          if (boxOfficeRealtime.hasOwnProperty(i) && !isNaN(parseInt(i))) {
+            boxOfficeRealtimeArr.push(boxOfficeRealtime[i]['children'][0]['data']);
+          }
+        }
+        for (let i in boxOfficeCumulate) {
+          if (boxOfficeCumulate.hasOwnProperty(i) && !isNaN(parseInt(i))) {
+            boxOfficeCumulateArr.push(boxOfficeCumulate[i]['children'][0]['data']);
+          }
+        }
+        res.json({ boxOfficeName: boxOfficeNameArr, boxOfficeRealtime: boxOfficeRealtimeArr, boxOfficeCumulate: boxOfficeCumulateArr });
+      } catch (err) {
+        res.json({ boxOfficeName: [], boxOfficeRealtime: [], boxOfficeCumulate: [] });
+      }
+    } else {
+      res.json({ boxOfficeName: [], boxOfficeRealtime: [], boxOfficeCumulate: [] });
+    }
+  });
+};
+
 exports.getAllMovies = getAllMovies;
 exports.getCarouImgs = getCarouImgs;
+exports.getBoxOffice = getBoxOffice;

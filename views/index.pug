@@ -7,6 +7,7 @@ html(lang='en')
 		link(rel='icon', href='/images/title.png')
 		link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css')
 		link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+		link(rel='stylesheet', type='text/css', href='/stylesheets/cityPicker.css')
 		// HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询
 		// 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果
 		//if lt IE 9
@@ -26,8 +27,10 @@ html(lang='en')
 					#bs-example-navbar-collapse-1.collapse.navbar-collapse
 						ul.nav.navbar-nav
 							li.dropdown
-								a.dropdown-toggle(href='', data-toggle='dropdown')= city
+								span#cityChoice.dropdown-toggle(data-toggle='dropdown')
 									strong.caret
+								input#province(type='hidden', value='')
+								input#city(type='hidden', value='')
 						ul.nav.navbar-nav.navbar-right
 							li
 								form.navbar-form(role='search')
@@ -49,7 +52,7 @@ html(lang='en')
 					#bs-example-navbar-collapse-1.collapse.navbar-collapse
 						ul.nav.navbar-nav
 							li.dropdown
-								a.dropdown-toggle(href='', data-toggle='dropdown')= city
+								a.dropdown-toggle(href='', data-toggle='dropdown')
 									strong.caret
 						ul.nav.navbar-nav.navbar-right
 							li
@@ -76,24 +79,20 @@ html(lang='en')
 						p.red-big-font 正在热映
 						.row#movies
 					.col-md-4.column
-						p.red-big-font 今日票房
-						ol
-							li
-								| Lorem ipsum dolor sit amet
-							li
-								| Consectetur adipiscing elit
-							li
-								| Integer molestie lorem at massa
-							li
-								| Facilisis in pretium nisl aliquet
-							li
-								| Nulla volutpat aliquam velit
-							li
-								| Faucibus porta lacus fringilla vel
-							li
-								| Aenean sit amet erat nunc
-							li
-								| Eget porttitor lorem
+						p.red-big-font 票房排行
+						table.table
+							thead
+								tr
+									th
+										|  
+									th
+										| 影片名
+									th
+										| 实时票房（万）
+									th
+										| 累计票房（万）
+							tbody
+
 		footer.row.clearfix
 			| ©2017 12345电影网
 		// jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery)
@@ -101,3 +100,18 @@ html(lang='en')
 		// 包括所有已编译的插件
 		script(src='/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js')
 		script(src='/javascripts/addMovie.js')
+		script(src='/javascripts/cityPicker/geolocation.js')
+		script(src='/javascripts/cityPicker/cityData.js')
+		script(src='/javascripts/cityPicker/cityPicker.js')
+		script.
+			var cityPicker = new IIInsomniaCityPicker({
+			data: cityData,
+			target: '#cityChoice',
+			valType: 'k-v',
+			hideCityInput: '#city',
+			hideProvinceInput: '#province',
+			callback: function(city_id) {
+			//alert(city_id);
+			}
+			});
+			cityPicker.init();
