@@ -9,6 +9,16 @@ body {
   background: #303749;
 }
 
+div.home {
+  margin: 1em;
+}
+
+div.home a {
+  text-decoration: none;
+  color: white;
+  font-size: 2em;
+}
+
 #main_content {
   width: 550px;
   margin: 20px auto 0;
