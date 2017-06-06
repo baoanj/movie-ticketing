@@ -39,6 +39,10 @@ IIInsomniaCityPicker.prototype = {
       that.template.remove();
     });
 
+    $(window).scroll(function(event) {
+      that.template.remove();
+    });
+
     that.settings.target.attr('readonly', true);
 
     that.targetEvent();
