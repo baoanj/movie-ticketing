@@ -29,7 +29,7 @@ module.exports = function(db) {
             }
           });
         } else {
-          return Promise.reject({ password: '用户名不存在' });
+          return Promise.reject({ username: '用户名不存在' });
         }
       });
     },

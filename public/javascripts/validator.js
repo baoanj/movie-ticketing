@@ -35,7 +35,7 @@ var validator = {
   },
 
   isEmailValid: function(email) {
-    return this.form.email.status = /^[a-zA-Z_\-]+@([a-zA-Z_\-]+\.)+[a-zA-Z]{2,4}$/.test(email);
+    return this.form.email.status = /^[0-9a-zA-Z_\-]+@([0-9a-zA-Z_\-]+\.)+[a-zA-Z]{2,4}$/.test(email);
   },
 
   isRepeatpassValid: function(repeatpass) {

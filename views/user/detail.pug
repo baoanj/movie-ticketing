@@ -5,19 +5,62 @@ html
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title= title
     link(rel='icon', href='/images/title.png')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/detail.css')
-  body
-    div(class='home')
-      a(href='/', title='首页') 12345电影
-    #main_content
-      h1 用户详情
-      #textContent
-        div
-          p 用户名 ：
-          p#username!= user.username
-        hr
-        div
-          p 邮箱 ：
-          p#email!= user.email
-      p#switch
-        a(href='/user/signout', title='退出登录') 退出登录
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome-4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/signup.css')
+    // HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询
+    // 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+  body.signup
+    header.row.clearfix.nav-root
+      .col-md-12.column.nav-con
+        nav.navbar.navbar-default.nav-bg(role='navigation')
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/') 12345电影
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/user/login', title=user.username)
+                  i.fa.fa-user-o.fa-fw
+              li
+                a(href='/user/signout', title='退出登录')
+                  i.fa.fa-sign-out.fa-fw
+    header.row.clearfix.nav-root-v
+      .col-md-12.column.nav-con-v
+        nav.navbar.navbar-default.nav-bg-v(role='navigation')
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='/') 12345电影
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/user/login', title=user.username)
+                  i.fa.fa-user-o.fa-fw
+              li
+                a(href='/user/signout', title='退出登录')
+                  i.fa.fa-sign-out.fa-fw
+    .row.clearfix.signup-form
+      .col-md-12.column
+        h3.signup-h3 个人中心
+        p
+          | 用户名 ：
+          span#username!= user.username
+        p
+          | 邮箱 ：
+          span#email!= user.email
+    footer.row.clearfix
+      | ©2017 12345电影网
+    script(type='text/javascript', src='/javascripts/jquery.js')
+    script(src='/javascripts/bootstrap-3.3.7-dist/js/bootstrap.min.js')

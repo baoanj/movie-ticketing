@@ -67,19 +67,27 @@
   }
 }
 
-body {
+body.index {
   position: relative;
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 0 0 15vh 0;
+  padding: 0 0 10vh 0;
+}
+
+a.navbar-brand:before {
+  content: "\f008";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  margin-right: 0.4em;
 }
 
 .nav-root {
   background-color: #303749;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 99;
   margin: 0;
   padding: 0;
   color: white;
@@ -102,6 +110,10 @@ body {
   margin: 0;
   padding: 0;
   border: none;
+}
+
+span#cityChoice {
+  cursor: pointer;
 }
 
 .open > a {
@@ -142,8 +154,32 @@ span#cityChoice {
   line-height: 20px;
 }
 
-.input-radius {
-  border-radius: 50px !important;
+input.form-control.input-radius {
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: 1px solid white;
+  padding-right: 1.7em;
+  overflow: hidden;
+}
+
+.search-movie {
+  position: relative;
+}
+
+.search-movie:after {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  position: absolute;
+  right: 0.7em;
+  top: 0.4em;
+}
+
+.navbar-form {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .search-btn {
@@ -224,26 +260,26 @@ div.carousel-inner div.item {
   padding: 0.5em;
 }
 
-tbody tr:nth-child(1) td:nth-child(1),
-tbody tr:nth-child(2) td:nth-child(1),
-tbody tr:nth-child(3) td:nth-child(1) {
+table.table tbody tr:nth-child(1) td:nth-child(1),
+table.table tbody tr:nth-child(2) td:nth-child(1),
+table.table tbody tr:nth-child(3) td:nth-child(1) {
   font-weight: bold;
   color: #ED0D75;
 }
 
-tbody tr:nth-child(4) td:nth-child(1),
-tbody tr:nth-child(5) td:nth-child(1),
-tbody tr:nth-child(6) td:nth-child(1),
-tbody tr:nth-child(7) td:nth-child(1),
-tbody tr:nth-child(8) td:nth-child(1),
-tbody tr:nth-child(9) td:nth-child(1),
-tbody tr:nth-child(10) td:nth-child(1) {
+table.table tbody tr:nth-child(4) td:nth-child(1),
+table.table tbody tr:nth-child(5) td:nth-child(1),
+table.table tbody tr:nth-child(6) td:nth-child(1),
+table.table tbody tr:nth-child(7) td:nth-child(1),
+table.table tbody tr:nth-child(8) td:nth-child(1),
+table.table tbody tr:nth-child(9) td:nth-child(1),
+table.table tbody tr:nth-child(10) td:nth-child(1) {
   font-weight: bold;
   color: #717171;
 }
 
-footer {
-  margin: 0 !important;
+footer.row.clearfix {
+  margin: 1em 0 0 0 !important;
   padding: 0 !important;
   width: 100%;
   height: 10vh;
@@ -254,4 +290,8 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
+}
+
+li.nav-user-li {
+  width: min-content;
 }
